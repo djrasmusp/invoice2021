@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             $table->timestamps('ends')->useCurrent();
             $table->set('status', ['confirmed','tentative','cancelled'])->default('confirmed');
             $table->text('summary')->nullable();
-            $table->uuid('uid')->default(Str::uuid());
+            $table->uuid('uid')->default(Str::uuid())->unique();
             $table->timestamps();
         });
     }
